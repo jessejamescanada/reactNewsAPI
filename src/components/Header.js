@@ -3,9 +3,30 @@ import '../App.css';
 import TechNewsButton from './TechNewsButton';
 import TopNewsButton from './TopNewsButton';
 import SportsNewsButton from './SportsNewsButton';
+import { useState } from 'react';
 
 const Header = ({isClicked, setIsClicked, isTopNewsClicked, setIsTopNewsClicked, isSportsClicked, setIsSportsClicked}) => {
-  return (
+    const [activeIndex, setActiveIndex] = useState(0)
+  
+    const changedSportsClick = () => {
+        setIsSportsClicked(prevClick => !prevClick)
+        setIsClicked(false)
+        setIsTopNewsClicked(false)
+    }
+
+    const changedTechClick =() => {
+        setIsClicked(prevClick => !prevClick)
+        setIsSportsClicked(false)
+        setIsTopNewsClicked(false)
+    }
+
+    const changedTopClick = () => {
+        setIsTopNewsClicked(prevClick => !prevClick)
+        setIsClicked(false)
+        setIsSportsClicked(false)
+    }
+  
+    return (
     <header>
         <div className="header-container">
             <div className="header-items-container">
@@ -16,13 +37,18 @@ const Header = ({isClicked, setIsClicked, isTopNewsClicked, setIsTopNewsClicked,
                         <li>Weather</li>
                         <li>Sports</li>
                     </ul>
-
                 </div>
             </div>
             <div className="news-btns">
-            <TopNewsButton isTopNewsClicked={isTopNewsClicked} setIsTopNewsClicked={setIsTopNewsClicked}/>
-            <TechNewsButton  isClicked={isClicked} setIsClicked={setIsClicked}/>
-            <SportsNewsButton isSportsClicked={isSportsClicked} setIsSportsClicked={setIsSportsClicked}/>
+            <TopNewsButton 
+                changedTopClick={changedTopClick}
+                />
+            <TechNewsButton  
+                changedTechClick={changedTechClick}
+                />
+            <SportsNewsButton  
+                changedSportsClick={changedSportsClick}
+                />
             </div>
         </div>
     </header>

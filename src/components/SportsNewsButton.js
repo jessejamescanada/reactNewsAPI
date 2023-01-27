@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SportsNewsButton = ({ setIsSportsClicked}) => {
+const SportsNewsButton = ({ changedSportsClick}) => {
     const clicked = () => {
-        setIsSportsClicked(prevClick => !prevClick)
+        changedSportsClick()
     }
   return (
     <div>

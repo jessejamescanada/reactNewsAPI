@@ -8,7 +8,7 @@ const TechNews = ({techNews}) => {
                 return (
                     <a href={item.url} className='img-info-container'>
                         <div className="title-container">
-                            <h2 className='title'>{item.length > 70 ? `${item.title.substring(0, 70)}...` : item.title}</h2>
+                            <h2 className='title'>{item.title.length > 70 ? `${item.title.substring(0, 70)}...` : item.title}</h2>
                         </div>
                         <div className="img-container">
                             <img src={item.urlToImage} alt={item.publishedAt} className='news-image' />

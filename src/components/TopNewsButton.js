@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TopNewsButton = ({setIsTopNewsClicked}) => {
+const TopNewsButton = ({changedTopClick}) => {
 
     const clicked = () => {
-        setIsTopNewsClicked(prevClick => !prevClick)
+        changedTopClick()
     }
   return (
     <div>
